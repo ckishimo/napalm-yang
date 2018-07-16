@@ -169,9 +169,7 @@ global:
         config:
             _process: unnecessary
             enabled:
-                _process:
-                  - path: graceful_restart.disable
-                    enabled: False
+                _process: not_implemented
             helper-only:
                 _process: not_implemented
         state:
