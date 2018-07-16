@@ -161,7 +161,7 @@ global:
     graceful-restart:
         _process: unnecessary
         config:
-            _process: unnecessary 
+            _process: unnecessary
             enabled:
                 _process:
                   - path: graceful_restart.disable
@@ -244,7 +244,7 @@ global:
                     _process:
                       - path: delay
                 maximum-delay:
-                    _process: 
+                    _process:
                       - path: holddown
             state:
                 _process: not_implemented
