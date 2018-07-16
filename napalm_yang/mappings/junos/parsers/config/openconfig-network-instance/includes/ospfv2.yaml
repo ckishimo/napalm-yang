@@ -23,7 +23,13 @@ areas:
                     _process: unnecessary
                     authentication-type:
                         _process:
-                          - path: authentication
+                            - path: authentication.md5.name
+                              post: "md5 password"
+                            - path: "authentication.simple-password"
+                              post: "simple password"
+                            - path: authentication
+                              present: False
+                              post: "none"
                     hide-network:
                         _process: not_implemented
                     id:
@@ -35,14 +41,14 @@ areas:
                         _process: not_implemented
                     network-type:
                         _process:
-                          - path: "interface_type"
-                            regexp: "(?P<value>(p2p|p2mp|nbma))"
-                            default: BROADCAST_NETWORK
+                          - path: "interface-type"
+                            regexp: "(?P<value>\\w+)"
                             map:
                                 p2p: POINT_TO_POINT_NETWORK
-                                p2mp: POINT_TO_MULTIPOINT_NETWORK
                                 nbma: NON_BROADCAST_NETWORK
-                            #present: False
+                          - path: "interface-type"
+                            present: False
+                            post: BROADCAST_NETWORK
                     passive:
                         _process:
                           - path: passive
