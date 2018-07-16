@@ -117,13 +117,13 @@ areas:
                         _process: unnecessary
                         dead-interval:
                             _process:
-                              - key: dead_interval
+                              - path: "dead-interval"
                         hello-interval:
                             _process:
-                              - path: hello_interval
+                              - path: "hello-interval"
                         retransmission-interval:
                             _process:
-                              - path: retransmit_interval
+                              - path: "retransmit-interval"
                     state:
                         _process: not_implemented
         lsdb:
