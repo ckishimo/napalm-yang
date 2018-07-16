@@ -4,7 +4,7 @@ areas:
     _process: unnecessary
     area:
         _process:
-          - path: area
+          - path: "area"
             key: name
         config:
             _process: unnecessary
@@ -12,12 +12,12 @@ areas:
                 _process:
                   - pre: "{{ area_key }}"
         identifier:
-            _process: not_implemented
+            _process: unnecessary
         interfaces:
             _process: unnecessary
             interface:
                 _process:
-                  - path: interface
+                  - path: "interface"
                     key: name
                 config:
                     _process: unnecessary
@@ -29,22 +29,22 @@ areas:
                     id:
                         _process: not_implemented
                     metric:
-                        _process: 
+                        _process:
                           - path: metric
                     multi-area-adjacency-primary:
                         _process: not_implemented
                     network-type:
                         _process:
-                          - path: interface_type
-                            regexp: "(?P<value>.*)"
-                            map: 
+                          - path: "interface_type"
+                            regexp: "(?P<value>(p2p|p2mp|nbma))"
+                            default: BROADCAST_NETWORK
+                            map:
                                 p2p: POINT_TO_POINT_NETWORK
                                 p2mp: POINT_TO_MULTIPOINT_NETWORK
                                 nbma: NON_BROADCAST_NETWORK
-                            default: BROADCAST_NETWORK
-                            present: False
+                            #present: False
                     passive:
-                        _process: 
+                        _process:
                           - path: passive
                             present: True
                     priority:
