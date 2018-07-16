@@ -248,9 +248,9 @@ global:
                 _process: unnecessary
                 initial-delay:
                     _process:
-                      - path: delay
+                      - path: "spf-options.delay"
                 maximum-delay:
                     _process:
-                      - path: holddown
+                      - path: "spf-options.holddown"
             state:
                 _process: not_implemented
