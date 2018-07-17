@@ -24,9 +24,9 @@ areas:
                     authentication-type:
                         _process:
                             - path: authentication.md5.name
-                              post: "md5 password"
+                              post: "md5"
                             - path: "authentication.simple-password"
-                              post: "simple password"
+                              post: "simple-password"
                             - path: authentication
                               present: False
                               post: "none"
@@ -46,6 +46,9 @@ areas:
                             map:
                                 p2p: POINT_TO_POINT_NETWORK
                                 nbma: NON_BROADCAST_NETWORK
+                                # p2mp not supported in Openconfig model
+                                # return p2p to avoid the error
+                                p2mp: POINT_TO_POINT_NETWORK
                           - path: "interface-type"
                             present: False
                             post: BROADCAST_NETWORK
@@ -153,7 +156,7 @@ areas:
 global:
     _process: unnecessary
     config:
-        _process: not_implemented
+        _process: unnecessary
         hide-transit-only-networks:
             _process: not_implemented
         igp-shortcuts:
@@ -161,7 +164,9 @@ global:
         log-adjacency-changes:
             _process: not_implemented
         router-id:
-            _process: not_implemented
+            _process:
+              - path: "routing-options.router-id"
+                from: "network_instance.{{ network_instance_key }}"
         summary-route-cost-mode:
             _process: not_implemented
     graceful-restart:
